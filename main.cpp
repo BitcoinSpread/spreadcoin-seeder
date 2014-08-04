@@ -397,23 +397,6 @@ int main(int argc, char **argv) {
         db.ResetIgnores();
     printf("done\n");
   }
-
-  // FIXME: remove after bootstrapping
-  const char* SeedNodes[] =
-  {
-      "62.195.238.151",
-      "188.27.70.75",
-      "5.206.58.9",
-      "218.204.251.200",
-      "189.27.106.169",
-      "24.207.113.68",
-      "95.79.31.38",
-      "127.0.0.1",
-      "192.168.56.1"
-  };
-  for (int i = 0; i < 1; i++)
-    db.Add(CService(CNetAddr(SeedNodes[i]), GetDefaultPort()), true);
-
   pthread_t threadDns, threadSeed, threadDump, threadStats;
   if (fDNS) {
     printf("Starting %i DNS threads for %s on %s (port %i)...", opts.nDnsThreads, opts.host, opts.ns, opts.nPort);
